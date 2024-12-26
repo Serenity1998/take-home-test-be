@@ -5,7 +5,9 @@
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx tsx watch src/index.ts"
+    "start": "npx tsx watch src/index.ts",
+    "migrate": "prisma migrate dev",
+    "studio": "prisma studio"
   },
   "keywords": [],
   "author": "",
