@@ -17,6 +17,11 @@ class TaskController {
     const serviceResponse = await taskService.update(_req);
     return handleServiceResponse(serviceResponse, res);
   };
+
+  public deleteTask: RequestHandler = async (_req: Request, res: Response) => {
+    const serviceResponse = await taskService.delete(_req);
+    return handleServiceResponse(serviceResponse, res);
+  };
 }
 
 export const taskController = new TaskController();
