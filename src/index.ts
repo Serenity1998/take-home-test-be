@@ -2,7 +2,6 @@ import { PrismaClient } from '@prisma/client';
 import { env } from './common/utils/envSetting';
 import { app } from './server';
 
-// Connect to DB
 const prisma = new PrismaClient();
 
 prisma
