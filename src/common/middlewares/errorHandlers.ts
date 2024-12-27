@@ -30,4 +30,5 @@ export const prismaErrorHandler = (ex: unknown): string => {
 
   return errorMessage;
 };
+
 export default () => [unexpectedRequest, addErrorToRequestLog];
