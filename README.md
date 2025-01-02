@@ -43,15 +43,11 @@ Prisma CLI installed globally (optional)
 
 1. Clone the repository
 
-bash
-Copy code
 git clone https://github.com/YOUR-USERNAME/take-home-test-be.git
 cd your-repo
 
 2. Install dependencies
 
-bash
-Copy code
 npm install
 
 3. Set up your environment variables
@@ -59,23 +55,22 @@ Create a .env file in the root directory and configure it (templated included in
 
 4. Initialize Prisma
 
-bash
-Copy code
+
 npx prisma generate
 
 
 ## Running the Application
 
 Development and Production
-bash
-Copy code
+
 npm start
 
 ## API Endpoints
-Method	Endpoint	  Description
-GET	    /tasks      Retreive all tasks
-POST    /tasks	    Create new task
-GET	    /tasks/:id	Retreive single task
-PUT     /tasks/:id	Update single task
-DELTE   /tasks/:id	Delete single task
 
+| Method | Endpoint      | Description           |
+|--------|---------------|-----------------------|
+| GET    | /tasks        | Retrieve all tasks    |
+| POST   | /tasks        | Create new task       |
+| GET    | /tasks/:id    | Retrieve single task  |
+| PUT    | /tasks/:id    | Update single task    |
+| DELETE | /tasks/:id    | Delete single task    |
