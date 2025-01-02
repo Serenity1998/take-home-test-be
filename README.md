@@ -45,6 +45,7 @@ Prisma CLI installed globally (optional)
 ```bash
 git clone https://github.com/YOUR-USERNAME/take-home-test-be.git
 cd your-repo
+```
 
 2. Install dependencies
 ```bash
