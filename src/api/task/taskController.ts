@@ -3,6 +3,11 @@ import { handleServiceResponse } from '../../common/utils/httpHandlers';
 import { taskService } from './taskService';
 
 class TaskController {
+  public getTask: RequestHandler = async (_req: Request, res: Response) => {
+    const serviceResponse = await taskService.getAll(_req);
+    return handleServiceResponse(serviceResponse, res);
+  };
+
   public getTasks: RequestHandler = async (_req: Request, res: Response) => {
     const serviceResponse = await taskService.getAll(_req);
     return handleServiceResponse(serviceResponse, res);

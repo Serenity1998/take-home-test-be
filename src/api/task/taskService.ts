@@ -7,8 +7,14 @@ const prisma = new PrismaClient();
 
 class TaskService {
   async getAll(_req: Request): Promise<ServiceResponse> {
+    const { id } = _req.params;
+    let tasks;
     try {
-      const tasks = await prisma.task.findMany();
+      if (!id) tasks = await prisma.task.findMany();
+      else {
+        tasks = await prisma.task.findUnique({ where: { id: Number(id) } });
+        if (!tasks) throw new Error('Task not found');
+      }
       return ServiceResponse.success<any>('Successfully fetched tasks:', { tasks });
     } catch (ex) {
       console.log(ex);
@@ -38,11 +44,13 @@ class TaskService {
     try {
       if (!id) throw Error('Id can`t be empty');
       if (!title || !color) throw Error('Title and color can`t be empty');
+      const taskExists = await prisma.task.findUnique({ where: { id: Number(id) } });
+      if (!taskExists) throw new Error('Task not found');
       const task = await prisma.task.update({
         where: { id: Number(id) },
         data: { title, color, completed },
       });
-      return ServiceResponse.success<any>('Successfully created task:', { task });
+      return ServiceResponse.success<any>('Successfully updated task:', { task });
     } catch (ex) {
       console.log(ex);
       let errorMessage = prismaErrorHandler(ex);
