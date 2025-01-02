@@ -50,20 +50,21 @@ cd your-repo
 2. Install dependencies
 ```bash
 npm install
-
+```
 3. Set up your environment variables
 Create a .env file in the root directory and configure it (templated included inside project env.template).
 
 4. Initialize Prisma
 ```bash
 npx prisma generate
-
+```
 
 ## Running the Application
 
 Development and Production
 ```bash
 npm start
+```
 
 ## API Endpoints
 
