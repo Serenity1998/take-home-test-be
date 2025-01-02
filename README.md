@@ -16,32 +16,66 @@ Prisma CLI installed globally (optional)
 
 ## Main structures:
 
-- admin-dashboard
-- candidates
-- clients
+- prisma
+- src
 
 ```sh
 /root
   │
   ├── prisma
-  │
+  │   ├── schema.prisma       # Prisma schema file
+  │   └── migrations/         # Prisma migration
   ├── src
-  │   └── api
-  │         └── Api per functionality (Each functionality consists of router, service and controller)
+  │   ├── api              # Api per functionality (Each functionality consists of router, service and controller)
   │   └── common
-  │       └── middlewares
-  │             └── Middleware for handling unexpected requests and Prisma-specific error logging
-  │       └── types
-  │             └── Type classes (etc. ServiceResponse for consistent API success and failure responses)
-  │       └── utils
-  │             └── Utility classes (environment settings, http handlers and logger classes)
-  │   └── index.ts
-  │       └── Node.js server initilization with Prisma, environment settings, and handling shutdown.
-  │   └── server.ts
-  │       └── Express API with CORS, task routing, error handling, and observability functionalities decleration.
+  │       ├── middlewares  # Middleware for handling unexpected requests and Prisma-specific error logging
+  │       ├── types        # Type classes (etc. ServiceResponse for consistent API success and failure responses)
+  │       └── utils        # Utility classes (environment settings, http handlers and logger classes)
+  │   ├── index.ts         # Node.js server initilization with Prisma, environment settings, and handling shutdown.
+  │   └── server.ts        # Express API with CORS, task routing, error handling, and observability functionalities decleration.
   │
   └── README.md
   
 
 ```
-#$
+
+## Installation
+
+1. Clone the repository
+
+bash
+Copy code
+git clone https://github.com/YOUR-USERNAME/take-home-test-be.git
+cd your-repo
+
+2. Install dependencies
+
+bash
+Copy code
+npm install
+
+3. Set up your environment variables
+Create a .env file in the root directory and configure it (templated included inside project env.template).
+
+4. Initialize Prisma
+
+bash
+Copy code
+npx prisma generate
+
+
+## Running the Application
+
+Development and Production
+bash
+Copy code
+npm start
+
+## API Endpoints
+Method	Endpoint	  Description
+GET	    /tasks      Retreive all tasks
+POST    /tasks	    Create new task
+GET	    /tasks/:id	Retreive single task
+PUT     /tasks/:id	Update single task
+DELTE   /tasks/:id	Delete single task
+
